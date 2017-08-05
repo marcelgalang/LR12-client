@@ -2,6 +2,7 @@
   "name": "lr12-client",
   "version": "0.1.0",
   "private": true,
+
   "hompage": "https://marcelgalang.github.io/lr12-client",
   "main": "index.js",
   "dependencies": {
@@ -55,9 +56,18 @@
     "webpack-hot-middleware": "2.10.0"
   },
   "scripts": {
+
     "test": "test",
     "deploy": "gh-pages -d build",
      "start": "npm-run-all --parallel open:src lint:watch",
+
+
+    "build": "react-scripts build",
+
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+
     "open:src": "babel-node tools/server.js",
     "lint": "node_modules/.bin/esw webpack.config.* src utils",
     "lint:watch": "npm run lint -- --watch"
