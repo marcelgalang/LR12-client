@@ -56,18 +56,9 @@
     "webpack-hot-middleware": "2.10.0"
   },
   "scripts": {
-
     "test": "test",
     "deploy": "gh-pages -d build",
-     "start": "npm-run-all --parallel open:src lint:watch",
-
-
-    "build": "react-scripts build",
-
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-
+    "start": "npm-run-all --parallel open:src lint:watch",
     "open:src": "babel-node tools/server.js",
     "lint": "node_modules/.bin/esw webpack.config.* src utils",
     "lint:watch": "npm run lint -- --watch"
