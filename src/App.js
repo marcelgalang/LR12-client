@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
-import Button from 'react-toolbox/lib/button/Button';
-import './App.css';
+import React from 'react';
+import PropTypes from 'prop-types'
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <Button raised primary>
-          Hi!
-        </Button>
+      <div className="container-fluid">
+        Hello yo.
       </div>
     );
   }
 }
+
+App.propTypes = {
+  children: PropTypes.object.isRequired
+};
 
 export default App;

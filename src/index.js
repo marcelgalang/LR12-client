@@ -1,22 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import ThemeProvider from 'react-toolbox/lib/ThemeProvider';
-import theme from './toolbox/theme';
-import App from './App';
-import './index.css';
-import { render } from 'react-dom'
+import 'babel-polyfill';
+import { render } from 'react-dom';
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { createStore, applyMiddleware } from 'redux'
-import reducer from './reducers'
-import thunk from 'redux-thunk'
-import { getAllProducts } from './actions'
-import {createLogger} from 'redux-logger'
+import { Router, browserHistory } from 'react-router';
+import routes from './routes';
+import './index.css';
+import {loadUsers} from './actions/userActions';
+import configureStore from './store/configureStore';
 
+const store = configureStore();
 
-ReactDOM.render(
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>,
-  document.getElementById('root')
+store.dispatch(loadUsers());
+
+render(
+  <Provider store={store}>
+    <Router history={browserHistory} routes={routes} />
+  </Provider>,
+ document.getElementById('root')
 );
